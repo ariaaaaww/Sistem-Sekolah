@@ -5,28 +5,50 @@ use app\Controller\StudentController;
 
 class Router
 {
+    private array $routes = [];
+
+    public function add(string $method, string $uri, string $controller, string $function)
+    {
+        $this->routes[] = [
+            $this->routes[] = [
+                'method' => $method,
+                'uri' => $uri,
+                'controller' => $controller,
+                'function' => $function
+            ]
+        ];
+    }
+
+
 
     public function run()
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-        if ($method == 'GET' && $uri == '/student') {
-            // echo '<h1>Daftar Siswa</h1>';
-            // echo '<p>Menampilkan daftar siswa</p>';
-            // return;
+        foreach ($this->routes as $route) {
+            $pattern = $this->buildPattern($route['path']);
 
+            if (preg_match($pattern, $uri, $matches)) {
+                array_shift($matches);
+                require_once './app/controller' . $route['controller'] . '.php';
+                $function = $route['function'];
+
+                $controllerClass = 'App\\Controller\\' . $route['controller'];
+                $controller = new $controllerClass;
+
+                call_user_func_array([$controller, $function], $matches);
+
+                return;
+            }
+        }
+
+        if ($method == 'GET' && $uri == '/student') {
             require_once './app/controller/StudentController.php';
             $controller = new StudentController();
             $controller->index();
             return;
         }
-        // if ($method == 'GET' && $uri == '/student/create') {
-        //     echo '<h1>Tambah Siswa</h1>';
-        //     echo '<p>Menampilkan form tambah siswa</p>';
-        //     echo '<form>';
-        //     return;
-        // }
 
         if ($method == 'GET' && $uri == '/student/create') {
             require_once './app/controller/StudentController.php';
