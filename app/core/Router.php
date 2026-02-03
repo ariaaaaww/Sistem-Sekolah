@@ -10,16 +10,12 @@ class Router
     public function add(string $method, string $uri, string $controller, string $function)
     {
         $this->routes[] = [
-            $this->routes[] = [
-                'method' => $method,
-                'uri' => $uri,
-                'controller' => $controller,
-                'function' => $function
-            ]
+            'method' => $method,
+            'uri' => $uri,
+            'controller' => $controller,
+            'function' => $function
         ];
     }
-
-
 
     public function run()
     {
@@ -27,35 +23,40 @@ class Router
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         foreach ($this->routes as $route) {
-            $pattern = $this->buildPattern($route['path']);
+            $pattern = str_replace(
+                search: '{id}',
+                replace: '[0-9]+',
+                subject: $route['uri'],
+            );
+            $pattern = '#^' . $pattern . '$#';
 
             if (preg_match($pattern, $uri, $matches)) {
                 array_shift($matches);
-                require_once './app/controller' . $route['controller'] . '.php';
-                $function = $route['function'];
+                require_once '../app/controller/' . $route['controller'] . '.php';
 
                 $controllerClass = 'App\\Controller\\' . $route['controller'];
-                $controller = new $controllerClass;
+                $controller = new $controllerClass();
+                $function = $route['function'];
 
                 call_user_func_array([$controller, $function], $matches);
-
                 return;
             }
+
         }
 
-        if ($method == 'GET' && $uri == '/student') {
-            require_once './app/controller/StudentController.php';
-            $controller = new StudentController();
-            $controller->index();
-            return;
-        }
+        // if ($method == 'GET' && $uri == '/student') {
+        //     require_once './app/controller/StudentController.php';
+        //     $controller = new StudentController();
+        //     $controller->index();
+        //     return;
+        // }
 
-        if ($method == 'GET' && $uri == '/student/create') {
-            require_once './app/controller/StudentController.php';
-            $controller = new StudentController();
-            $controller->create();
-            return;
-        }
+        // if ($method == 'GET' && $uri == '/student/create') {
+        //     require_once './app/controller/StudentController.php';
+        //     $controller = new StudentController();
+        //     $controller->create();
+        //     return;
+        // }
 
         http_response_code(404);
         echo '404 - Not Found Page';

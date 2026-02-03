@@ -15,5 +15,11 @@ class StudentController
         echo '<a href="https://youtube.com/" style="text-decoration: none"> Form </a>';
     }
 
+    public function show(string $id)
+    {
+        echo '<h1>Tambah SIswa</h1>';
+        echo '<p>Menampilkan detail siswa ID : {$id}</p>';
+    }
+
 }
 ?>
