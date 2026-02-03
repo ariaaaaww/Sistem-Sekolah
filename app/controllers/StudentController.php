@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controllers;
 
 class StudentController
 {
@@ -18,7 +18,7 @@ class StudentController
     public function show(string $id)
     {
         echo '<h1>Tambah SIswa</h1>';
-        echo '<p>Menampilkan detail siswa ID : {$id}</p>';
+        echo "<p>Menampilkan detail siswa ID : {$id}</p>";
     }
 
 }

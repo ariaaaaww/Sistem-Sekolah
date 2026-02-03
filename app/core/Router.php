@@ -20,21 +20,21 @@ class Router
     public function run()
     {
         $method = $_SERVER['REQUEST_METHOD'];
-        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);    
 
         foreach ($this->routes as $route) {
             $pattern = str_replace(
-                search: '{id}',
-                replace: '[0-9]+',
-                subject: $route['uri'],
+                '{id}',
+                '([0-9]+)',
+                $route['uri'],
             );
             $pattern = '#^' . $pattern . '$#';
 
             if (preg_match($pattern, $uri, $matches)) {
                 array_shift($matches);
-                require_once '../app/controller/' . $route['controller'] . '.php';
+                require_once './app/controllers/' . $route['controller'] . '.php';
 
-                $controllerClass = 'App\\Controller\\' . $route['controller'];
+                $controllerClass = 'App\\Controllers\\' . $route['controller'];
                 $controller = new $controllerClass();
                 $function = $route['function'];
 
