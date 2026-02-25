@@ -5,21 +5,23 @@ class StudentController
 {
     public function index()
     {
-        echo '<h1>Halaman Daftar Siswa</h1>';
-        echo '<p>Menampilkan daftar seluruh siswa</p>';
+        require_once '../view/students/index.php';
+        // require_once '..view/students/index.php';
     }
     public function create()
     {
-        echo '<h1>Tambah SIswa</h1>';
-        echo '<p>Menampilkan Form Tambah Siswa</p>';
-        echo '<a href="https://youtube.com/" style="text-decoration: none"> Form </a>';
+        require_once '../view/students/create.php';
+        // require_once '..view/students/create.php';
     }
 
     public function show(string $id)
     {
-        echo '<h1>Tambah SIswa</h1>';
-        echo "<p>Menampilkan detail siswa ID : {$id}</p>";
+        require_once "../view/students/show.php";
+        // require_once '..view/students/show.php';
     }
 
 }
 ?>
+
+<!-- ./ untuk dari awal -->
+<!-- .. untuk dari folder dari file -->
