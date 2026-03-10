@@ -9,6 +9,8 @@
       "Courier New", monospace;
     --color-red-700: oklch(50.5% 0.213 27.518);
     --color-red-900: oklch(39.6% 0.141 25.723);
+    --color-amber-200: oklch(92.4% 0.12 95.746);
+    --color-blue-500: oklch(62.3% 0.214 259.815);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -162,6 +164,30 @@
   }
 }
 @layer utilities {
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .flex {
+    display: flex;
+  }
   .table {
     display: table;
   }
@@ -171,12 +197,21 @@
   .resize {
     resize: both;
   }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .text-red-700 {
-    color: var(--color-red-700);
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
+  .text-amber-200 {
+    color: var(--color-amber-200);
   }
   .text-red-900 {
     color: var(--color-red-900);

@@ -32,7 +32,7 @@ class Router
 
             if (preg_match($pattern, $uri, $matches)) {
                 array_shift($matches);
-                require_once '../controllers/' . $route['controller'] . '.php';
+                require_once '../app/controllers/' . $route['controller'] . '.php';
 
                 $controllerClass = 'App\\Controllers\\' . $route['controller'];
                 $controller = new $controllerClass();
@@ -43,23 +43,8 @@ class Router
             }
 
         }
-
-        // if ($method == 'GET' && $uri == '/student') {
-        //     require_once './app/controller/StudentController.php';
-        //     $controller = new StudentController();
-        //     $controller->index();
-        //     return;
-        // }
-
-        // if ($method == 'GET' && $uri == '/student/create') {
-        //     require_once './app/controller/StudentController.php';
-        //     $controller = new StudentController();
-        //     $controller->create();
-        //     return;
-        // }
-
         http_response_code(404);
-        echo '404 - Not Found Page';
+      echo '404 - Not Found Page';
 
     }
 }
