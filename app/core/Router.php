@@ -1,7 +1,7 @@
 <?php
 namespace App\Core;
 
-use app\Controller\Student;
+use app\Controller\StudentController;
 
 class Router
 {
@@ -32,9 +32,9 @@ class Router
 
             if (preg_match($pattern, $uri, $matches)) {
                 array_shift($matches);
-                require_once '../controllers/' . $route['Student'] . '.php';
+                require_once '../app/controllers/' . $route['controller'] . '.php';
 
-                $controllerClass = 'App\\Controllers\\' . $route['Student'];
+                $controllerClass = 'App\\Controllers\\' . $route['controller'];
                 $controller = new $controllerClass();
                 $function = $route['function'];
 
@@ -46,7 +46,6 @@ class Router
 
         http_response_code(404);
         echo '404 - Not Found Page';
-
     }
 }
 

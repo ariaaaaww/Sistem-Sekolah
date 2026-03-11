@@ -5,18 +5,16 @@ class StudentController
 {
     public function index()
     {
-        require_once '../view/index.php';
+        require_once '../app/view/index.php';
     }
     public function Deksripsi_Karya()
-
-
     {
-        require_once '../view/Deksripsi Karya.php';
+        require_once '../app/view/Deksripsi Karya.php';
     }
 
     public function Lampiran_Karya()
     {
-        require_once "../view/Lampiran Karya.php";
+        require_once "../app/view/Lampiran Karya.php";
     }
 
 }
