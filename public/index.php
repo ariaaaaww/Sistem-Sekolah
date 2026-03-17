@@ -5,9 +5,10 @@ use App\Core\Router;
 
 $router = new Router();
 
-$router->add('GET', '/deks', 'StudentController', 'index');
-$router->add('GET', '/deks/Deksripsi_Karya', 'StudentController', 'Deksripsi_Karya');
-$router->add('GET', '/deks/Lampiran_Karya', 'StudentController', 'Lampiran Karya');
+//Karya
+$router->add('GET', '/deks', 'Karya', 'index');
+$router->add('GET', '/deks/deksripsi-karya', 'Karya', 'Deksripsi_Karya');
+$router->add('GET', '/deks/lampiran-karya', 'Karya', 'Lampiran Karya');
 
 $router->run();
 

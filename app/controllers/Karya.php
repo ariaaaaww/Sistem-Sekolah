@@ -1,20 +1,20 @@
 <?php
 namespace App\Controllers;
 
-class StudentController
+class Karya
 {
     public function index()
     {
-        require_once '../app/view/index.php';
+        require_once '../app/view/karya/index.php';
     }
     public function Deksripsi_Karya()
     {
-        require_once '../app/view/Deksripsi Karya.php';
+        require_once '../app/view/karya/deksripsi-karya.php';
     }
 
     public function Lampiran_Karya()
     {
-        require_once "../app/view/Lampiran Karya.php";
+        require_once "../app/view/karya/lampiran-karya.php";
     }
 
 }

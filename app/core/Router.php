@@ -1,7 +1,7 @@
 <?php
 namespace App\Core;
 
-use app\Controller\StudentController;
+use app\Controller\Karya;
 
 class Router
 {
