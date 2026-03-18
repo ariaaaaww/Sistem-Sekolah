@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karya Siswa - Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div class="nav-links">
+          <a href="#"><i class="fas fa-user"></i> Profil</a>
+          <a href="#"><i class="fas fa-bell"></i> Notifikasi</a>
+          <a href="#" class="active"><i class="fas fa-book"></i> Karya</a>
+          <a href="#"><i class="fas fa-upload"></i> Upload</a>
+        </div>
+        <a href="#" class="logout"
+          ><i class="fas fa-sign-out-alt"></i> Log out</a
+        >
+      </aside>
+
+      <main class="main-content">
+        <header>
+          <h1>Berikut ini adalah hasil karya yang telah dibuat</h1>
+        </header>
+
+        <div class="card-grid">
+          <article class="card">
+            <img
+              src="https://via.placeholder.com/300x180"
+              alt="Manusia dan Sejarah"
+            />
+            <div class="card-body">
+              <h2 class="badge-title">Manusia dan Sejarah</h2>
+              <div class="description">
+                <h3>Deskripsi Karya</h3>
+                <p>
+                  Manusia dan sejarah memiliki hubungan yang erat karena setiap
+                  peristiwa dalam kehidupan manusia menjadi bagian dari
+                  sejarah...
+                </p>
+              </div>
+              <div class="footer-info">
+                <span class="category">Sejarah</span>
+                <span class="members">Jumlah Anggota: 10</span>
+              </div>
+              <button class="detail-btn">Lihat Lebih Detail</button>
+              <div class="interactions">
+                <span><i class="far fa-thumbs-up"></i> Like</span>
+                <span><i class="far fa-comment"></i> Comment</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://via.placeholder.com/300x180"
+              alt="Sistem Tata Surya"
+            />
+            <div class="card-body">
+              <h2 class="badge-title">Sistem Tata Surya</h2>
+              <div class="description">
+                <h3>Deskripsi Karya</h3>
+                <p>
+                  Sistem tata surya adalah kumpulan benda langit yang berpusat
+                  pada Matahari dan dikelilingi oleh planet-planet...
+                </p>
+              </div>
+              <div class="footer-info">
+                <span class="category">Ilmu Pengetahuan</span>
+                <span class="members">Jumlah Anggota: 1</span>
+              </div>
+              <button class="detail-btn">Lihat Lebih Detail</button>
+              <div class="interactions">
+                <span><i class="far fa-thumbs-up"></i> Like</span>
+                <span><i class="far fa-comment"></i> Comment</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

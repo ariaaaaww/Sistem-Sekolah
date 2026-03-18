@@ -6,9 +6,9 @@ use App\Core\Router;
 $router = new Router();
 
 //Karya
-$router->add('GET', '/deks', 'Karya', 'index');
-$router->add('GET', '/deks/deksripsi-karya', 'Karya', 'Deksripsi_Karya');
-$router->add('GET', '/deks/lampiran-karya', 'Karya', 'Lampiran Karya');
+$router->add('GET', '/deks', 'KaryaController', 'index');
+$router->add('GET', '/deks/deksripsi-karya', 'KaryaController', 'deskripsiKarya');
+$router->add('GET', '/deks/lampiran-karya', 'KaryaController', 'lampiranKarya');
 
 $router->run();
 

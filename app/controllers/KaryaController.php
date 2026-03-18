@@ -1,18 +1,18 @@
 <?php
 namespace App\Controllers;
 
-class Karya
+class KaryaController
 {
     public function index()
     {
         require_once '../app/view/karya/index.php';
     }
-    public function Deksripsi_Karya()
+    public function deskripsiKarya()
     {
         require_once '../app/view/karya/deksripsi-karya.php';
     }
 
-    public function Lampiran_Karya()
+    public function lampiranKarya()
     {
         require_once "../app/view/karya/lampiran-karya.php";
     }

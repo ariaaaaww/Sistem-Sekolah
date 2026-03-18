@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f1efdb; /* Warna krem background sesuai gambar */
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    background-color: #d7e3f1;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    height: 100%;
+}
+
+.nav-links a, .logout {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.nav-links a.active {
+    background-color: #7499cc;
+    color: white;
+    border-radius: 0 20px 20px 0;
+    margin-right: 10px;
+}
+
+.nav-links i, .logout i {
+    margin-right: 10px;
+}
+
+.logout {
+    color: #d9534f;
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: 200px;
+    flex: 1;
+    padding: 40px;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* Card Grid Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.badge-title {
+    background-color: #7499cc;
+    color: white;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.description {
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.description h3 {
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.category {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.members {
+    background-color: #7499cc;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+}
+
+.detail-btn {
+    width: 100%;
+    background-color: #7499cc;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.interactions {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9em;
+    color: #555;
+}
