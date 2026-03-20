@@ -37,3 +37,20 @@ CREATE TABLE user_upload (
     status_verifikasi ENUM('pending', 'disetujui', 'ditolak') DEFAULT 'pending',
     waktu_submit TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- new
+-- // Tambahkan fungsi handleLike ke file js Anda
+function handleLike(btn) {
+    btn.classList.toggle('active');
+    if(btn.classList.contains('active')) {
+        btn.innerText = "Liked ❤️";
+    } else {
+        btn.innerText = "Like";
+    }
+}
+
+-- // Fungsi modal yang sudah ada (pastikan id sesuai)
+function openModal() {
+    const modal = document.getElementById("uploadModal");
+    if(modal) modal.style.display = "flex";
+}

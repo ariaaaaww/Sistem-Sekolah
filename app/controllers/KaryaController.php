@@ -12,12 +12,19 @@ class KaryaController
         require_once '../app/view/karya/deksripsi-karya.php';
     }
 
-    public function lampiranKarya()
+    // public function lampiranKarya()
+    // {
+    //     require_once "../app/view/karya/lampiran-karya.php";
+    // }
+
+    public function lampiranKarya($id)
     {
         require_once "../app/view/karya/lampiran-karya.php";
     }
 
 }
+
+
 ?>
 
 <!-- ./ untuk dari awal -->
