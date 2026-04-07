@@ -8,6 +8,7 @@ $router = new Router();
 $router->add('GET', '/student', 'StudentController', 'index');
 $router->add('GET', '/student/create', 'StudentController', 'create');
 $router->add('GET', '/student/{id}', 'StudentController', 'show');
+$router->add('GET', '/student/edit', 'StudentController', 'edit');
 
 $router->run();
 

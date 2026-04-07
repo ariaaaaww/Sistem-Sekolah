@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Siswa</title>
+    <title>Edit Siswa</title>
     <link rel="stylesheet" href="/css/output.css">
 </head>
 
@@ -23,8 +23,8 @@
         <div class="mt-2 space-y-4">
             <!-- Cari Header Start -->
             <div class="bg-gray-500 shadow p-4 rounded-lg text-amber-50">
-                <h1 class="font-bold text-black text-4xl">Tambah Siswa</h1>
-                <p>Menampilkan detail siswa yang terdaftar</p>
+                <h1 class="font-bold text-black text-4xl">Edit Siswa</h1>
+                <p>Melakukan perubahan data siswa yang terdaftar</p>
             </div>
             <!-- Cari Header End -->
 
@@ -53,8 +53,8 @@
                     </div>
 
                     <div class="flex justify-end gap-4 col-span-2">
-                        <a href="/student" class="border px-4 py-2 rounded-lg bg-amber-500 text-amber-50">Kembali</a>   
-                        <button type="submit" 
+                        <a href="/student" class="border px-4 py-2 rounded-lg bg-amber-500 text-amber-50">Kembali</a>
+                        <button type="submit"
                             class="border px-3 py-2 rounded-lg text-amber-50 bg-amber-800">Simpan</button>
                     </div>
                 </div>
