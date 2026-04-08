@@ -1,8 +1,32 @@
-      <div class="mt-2 space-y-4">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Siswa</title>
+    <link rel="stylesheet" href="/css/output.css">
+</head>
+
+<body class="flex flex-col min-h-screen">
+    <!-- Header Start -->
+    <header class="bg-blue-500 text-amber-200">
+        <div class="flex items-center justify-between container mx-auto p-4">
+            <a class="font-bold " href="/student/">Sistem Sekolah</a>
+            <a class="py-2 px-4 bg-white text-amber-500 rounded-2xl" href="/student/create">+ Tambah Siswa</a>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    
+
+    <!-- Main Start -->
+    <main class="grow container mx-auto p-5">
+        <div class="mt-2 space-y-4">
             <!-- Cari Header Start -->
             <div class="bg-gray-500 shadow p-4 rounded-lg text-amber-50">
                 <h1 class="font-bold text-black text-4xl">Tambah Siswa</h1>
-                <p>Menambahkan siswa baru kedalam sistem</p>
+                <p>Menampilkan detail siswa yang terdaftar</p>
             </div>
             <!-- Cari Header End -->
 
@@ -39,3 +63,15 @@
             </div>
             <!-- Card Content End -->
         </div>
+    </main>
+    <!-- Main End -->
+
+    <!-- Footer Start -->
+    <footer class="bg-gray-500 text-amber-50 p-4 text-center">
+        2026 - SMK Kristen Immanuel Pontianak - Sistem Sekolah
+    </footer>
+    <!-- Footer End -->
+
+</body>
+
+</html>

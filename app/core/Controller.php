@@ -7,7 +7,9 @@ class Controller
     {
         extract($data);
         $view = str_replace('.', '/', $view);
-        require_once "../app/view/{$view}.php";
+
+        $content = "../app/view/{$view}.php";
+        require_once "../app/view/layout/app.php";
     }
 }
 ?>
