@@ -11,23 +11,30 @@ class StudentController extends Controller
     public function index()
     {
         // require_once '../app/view/students/index.php';
-        $studentModel = new Student(); 
+        $studentModel = new Student();
         $students = $studentModel->getStudents();
 
         $this->view('students.index', [
             'students' => $students
-        ] );
+        ]);
     }
     public function create()
     {
         // require_once '../app/view/students/create.php';
         $this->view('students.create');
+        $studentModel = new Student();
+        $students = $studentModel->getStudents();
     }
 
     public function show(string $id)
     {
         // require_once "../app/view/students/show.php";
-        $this->view('students.show');
+        $id = intval($id);
+        $studentModel = new Student();
+        $student = $studentModel->getStudent($id);
+        $this->view('students.show', [
+            'student' => $student
+        ]);
     }
 
     public function edit()

@@ -11,22 +11,22 @@
         <div class="p-4 grid grid-cols-2 gap-4">
             <div class="space-y-2">
                 <label class="font-bold block" for="name">Nama</label>
-                <input type="text" id="name" name="name" placeholder="Masukkan nama" readonly
+                <input value="<?= $student['name']?>" type="text" id="name" name="name" placeholder="Masukkan nama" readonly
                     class="border rounded-lg px-4 py-2 w-full">
             </div>
             <div class="space-y-2">
                 <label class="font-bold block" for="kelas">Kelas</label>
-                <input type="text" id="kelas" kelas="kelas" placeholder="Masukkan Kelas" readonly
+                <input value="<?= $student['class']?>" type="text" id="kelas" kelas="kelas" placeholder="Masukkan Kelas" readonly
                     class="border rounded-lg px-4 py-2 w-full">
             </div>
             <div class="space-y-2">
                 <label class="font-bold block" for="nis">NIS</label>
-                <input type="text" id="nis" nis="nis" placeholder="Masukkan NIS" readonly
+                <input value="<?= $student['nis']?>" type="text" id="nis" nis="nis" placeholder="Masukkan NIS" readonly
                     class="border rounded-lg px-4 py-2 w-full">
             </div>
             <div class="space-y-2">
                 <label class="font-bold block" for="phone_number">No. Telepon</label>
-                <input type="text" id="phone_number" phone_number="phone_number" readonly
+                <input value="<?= $student['phone_number']?>" type="text" id="phone_number" phone_number="phone_number" readonly
                     placeholder="Masukkan Nomor Telepon" class="border rounded-lg px-4 py-2 w-full">
             </div>
 
