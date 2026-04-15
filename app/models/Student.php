@@ -1,7 +1,6 @@
 <?php
 namespace App\Models;
 require_once "../app/core/Database.php";
-require_once "../app/models/Student.php";
 use App\Core\Database;
 
 class Student extends Database
