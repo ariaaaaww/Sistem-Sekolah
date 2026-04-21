@@ -44,6 +44,12 @@ class StudentController extends Controller
     }
 
 
+    public function store()
+    {
+        $studentModel = new Student();
+        $studentModel->insert($_POST);
+
+    }
 }
 
 
