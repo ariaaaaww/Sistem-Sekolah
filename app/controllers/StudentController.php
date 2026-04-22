@@ -50,6 +50,22 @@ class StudentController extends Controller
         $studentModel->insert($_POST);
 
     }
+
+    public function update(string $id)
+    {
+        $id = intval($id);
+        $studentModel = new Student();
+        $studentModel->update($_POST, $id);
+
+    }
+
+    public function destroy(string $id)
+    {
+        $id = intval($id);
+        $studentModel = new Student();
+        $studentModel->delete($id);
+
+    }
 }
 
 

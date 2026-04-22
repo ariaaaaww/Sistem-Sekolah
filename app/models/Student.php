@@ -60,6 +60,28 @@ class Student extends Database
         }
     }
 
+    // Fungsi untuk mengubah data siswa
+    public function update(array $data, int $id)
+    {
+        $nis = htmlspecialchars($data['nis']);
+        $name = htmlspecialchars($data['name']);
+        $class = htmlspecialchars($data['class']);
+        $phone_number = htmlspecialchars($data['phone_number']);
+
+        $query = "UPDATE {$this->table} SET name = ?, nis = ?, class = ?, phone_number = ? WHERE id = ?";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bind_param('ssssi', $nis, $name, $class, $phone_number);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            header('Location: /student');
+            exit();
+        } else {
+            echo 'Error to update student';
+        }
+    }
+
+
     public function delete(int $id)
     {
         $id = htmlspecialchars($id);
