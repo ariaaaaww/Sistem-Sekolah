@@ -39,9 +39,13 @@
                         </td>
                         <td class="px-4 py-4">
                             <div class="flex justify-center items-center gap-4">
-                                <a href="/student/<?= $student['id']?>" class="text-green-500">Detail</a>
-                                <a href="/student/<?= $student['id']?>/edit" class="text-yellow-500">Edit</a>
-                                <a href="/student/" class="text-red-500">Hapus</a>
+                                <a href="/student/<?= $student['id'] ?>" class="text-green-500">Detail</a>
+                                <a href="/student/<?= $student['id'] ?>/edit" class="text-yellow-500">Edit</a>
+                                <form action="/student/<?= $student['id'] ?>"
+                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus data siswa ini?')">
+                                    <input type="hidden" name="_method", value="DELETE" method="POST">
+                                    <button type="submit" class="text-red-500 ">Hapus</button>
+                                </form>
                             </div>
                         </td>
                     </tr>

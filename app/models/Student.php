@@ -70,7 +70,7 @@ class Student extends Database
 
         $query = "UPDATE {$this->table} SET name = ?, nis = ?, class = ?, phone_number = ? WHERE id = ?";
         $stmt = $this->connection->prepare($query);
-        $stmt->bind_param('ssssi', $nis, $name, $class, $phone_number);
+        $stmt->bind_param('ssssi', $nis, $name, $class, $phone_number, $id);
         $stmt->execute();
 
         if ($stmt->affected_rows > 0) {
@@ -92,7 +92,7 @@ class Student extends Database
         $stmt->execute();
 
         if ($stmt->affected_rows > 0) {
-            header('Location: /students');
+            header('Location: /student');
             exit();
         } else {
             die("Error to delete students: " . $stmt->error);

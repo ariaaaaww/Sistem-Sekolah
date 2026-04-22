@@ -37,18 +37,19 @@ class StudentController extends Controller
         ]);
     }
 
-    public function edit()
-    {
-        // require_once '../app/view/students/edit.php';
-        $this->view('students.edit');
-    }
-
-
     public function store()
     {
         $studentModel = new Student();
         $studentModel->insert($_POST);
 
+    }
+    public function edit(string $id)
+    {
+        // require_once '../app/view/students/edit.php';
+        $id = intval($id);
+        $studentModel = new Student();
+        $student = $studentModel->getStudent($id);
+        $this->view('students.edit', ['student' => $student]);
     }
 
     public function update(string $id)

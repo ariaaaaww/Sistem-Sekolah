@@ -8,7 +8,7 @@
 
     <!-- Card Content Start -->
     <div class="bg-gray-10 pz-4 rounded-lg shadow mt-2 ">
-        <form action="/student" method="POST" class="p-4 grid grid-cols-2 gap-4">
+        <form action="/student" method="POST">
             <div class="p-4 grid grid-cols-2 gap-4">
                 <div class="space-y-2">
                     <label class="font-bold block" for="name">Nama</label>
