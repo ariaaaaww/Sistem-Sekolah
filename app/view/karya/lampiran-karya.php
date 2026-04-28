@@ -144,7 +144,7 @@ if (isset($_POST['submit'])) {
         <div class="modal-content" style="max-width: 700px; width: 60%;"> <span class="close"
                 onclick="closeModal()">&times;</span>
 
-            <form action="upload_proses.php" method="POST" enctype="multipart/form-data">
+            <form action="../app/view/karya/deksripsi-karya.php" method="POST" enctype="multipart/form-data">
                 <div class="upload-top-section">
                     <h3>No Files Yet</h3>
                     <p>Select a file</p>
