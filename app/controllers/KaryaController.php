@@ -3,6 +3,8 @@ namespace App\Controllers;
 
 class KaryaController
 {
+    protected $connection;
+
     public function index()
     {
         require_once '../app/view/karya/index.php';
@@ -11,11 +13,6 @@ class KaryaController
     {
         require_once '../app/view/karya/deksripsi-karya.php';
     }
-
-    // public function lampiranKarya()
-    // {
-    //     require_once "../app/view/karya/lampiran-karya.php";
-    // }
 
     public function lampiranKarya($id)
     {
