@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         .gas a {
-            text-decoration: none;  
+            text-decoration: none;
             font-size: 200px;
             display: flex;
             justify-content: center;
@@ -22,7 +22,7 @@
 
 <body>
     <div class="gas">
-        <a href="/deks/deksripsi-karya/" class="btn-detail">
+        <a href="/deksripsi-karya/" class="btn-detail">
             Deksripsi
         </a>
     </div>

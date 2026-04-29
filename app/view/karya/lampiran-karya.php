@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="putar">
                 <div class="karya">
-                    <a href="/deks/deksripsi-karya" style="display: flex; align-items: center;">
+                    <a href="/deksripsi-karya" style="display: flex; align-items: center;">
                         <img src="/asset/header/Karya On.png" alt="karya">
                         <h4 style="color: white;">Karya</h4>
                     </a>
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
     </aside>
 
     <div class="main-content">
-        <a href="/deks/deksripsi-lampiran" class="back-btn">‹</a>
+        <a href="/deksripsi-lampiran" class="back-btn">‹</a>
 
         <div class="gallery-container">
             <div class="gallery-item">

@@ -7,9 +7,9 @@ $router = new Router();
 
 //Karya
 $router->add('GET', '/', 'KaryaController', 'index');
-$router->add('GET', '/deks/deksripsi-karya/', 'KaryaController', 'deskripsiKarya');
-// $router->add('GET', '/deks/lampiran-karya', 'KaryaController', 'lampiranKarya');
-$router->add('GET', '/deks/lampiran-karya/{id}', 'KaryaController', 'lampiranKarya');
+$router->add('GET', '/deksripsi-karya/', 'KaryaController', 'deskripsiKarya');
+// $router->add('GET', '/lampiran-karya', 'KaryaController', 'lampiranKarya');
+$router->add('GET', '/lampiran-karya/{id}', 'KaryaController', 'lampiranKarya');
 
 $router->run();
 
