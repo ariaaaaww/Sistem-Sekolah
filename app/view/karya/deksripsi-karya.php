@@ -108,7 +108,7 @@ if (isset($_POST['submit'])) {
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
 
-            <form action="/prosesUpload" method="POST" enctype="multipart/form-data">
+            <form action="/prosesUpload/" method="POST" enctype="multipart/form-data">
                 <div class="upload-top-section">
                     <h3>No Files Yet</h3>
                     <p>Select a file to upload</p>
