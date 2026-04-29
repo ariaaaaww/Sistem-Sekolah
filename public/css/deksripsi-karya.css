@@ -152,7 +152,7 @@ body {
   font-weight: bold;
 }
 
-/* --- MODAL UPLOAD (DIKECILKAN) --- */
+/* --- MODAL UPLOAD --- */
 .modal {
   display: none;
   position: fixed;
@@ -167,9 +167,9 @@ body {
 }
 
 .modal-content {
-  background-color: #7ba2cc; /* Warna bingkai biru */
+  background-color: #7ba2cc;
   padding: 12px;
-  width: 60%; /* Dikecilkan sesuai permintaan */
+  width: 60%;
   max-width: 750px;
   border-radius: 15px;
   position: relative;
@@ -184,7 +184,6 @@ body {
   cursor: pointer;
 }
 
-/* Drop Zone Area */
 .upload-top-section {
   background-color: #f9f5eb;
   border: 2px dashed #333;
@@ -215,7 +214,6 @@ body {
   font-size: 13px;
 }
 
-/* Detail Panel Area */
 .detail-panel {
   border: 1px solid #333;
   border-radius: 10px;
@@ -260,4 +258,85 @@ body {
 .detail-body textarea {
   height: 80px;
   resize: none;
+}
+
+/* --- KODE TAMBAHAN UNTUK LAMPIRAN-KARYA.PHP --- */
+
+.karya-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom gambar */
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #333; /* Border hitam sesuai gambar referensi */
+}
+
+.karya-detail-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.detail-section-left {
+    flex: 1.2;
+}
+
+.vertical-line {
+    width: 2px;
+    background-color: #333; /* Garis pembatas tengah hitam */
+    min-height: 100%;
+}
+
+.detail-section-right {
+    flex: 1;
+}
+
+/* Typography Khusus Detail */
+.date-text { font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+.main-title { font-size: 36px; font-weight: 800; color: #333; margin-bottom: 5px; }
+.sub-category { font-size: 22px; color: #333; margin-bottom: 15px; }
+
+.note-box-display, .desc-box-display {
+    background: #f9f5eb; /* Warna beige terang */
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.comment-input {
+    width: 100%;
+    height: 80px;
+    background: #f9f5eb;
+    border: 1px solid #333;
+    margin-top: 10px;
+    padding: 10px;
+    resize: none;
+    display: block;
+}
+
+.btn-like-full {
+    width: 100%;
+    padding: 12px;
+    background-color: #7ba2cc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-like-full:hover {
+    background-color: #6a92bc;
 }

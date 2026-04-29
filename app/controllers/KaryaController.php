@@ -19,6 +19,10 @@ class KaryaController
         require_once "../app/view/karya/lampiran-karya.php";
     }
 
+    public function uploadProses()
+    {
+        require_once '../app/view/Upload/upload_proses.php';
+    }
 }
 
 

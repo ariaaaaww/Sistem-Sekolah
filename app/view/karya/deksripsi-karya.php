@@ -105,27 +105,27 @@ if (isset($_POST['submit'])) {
 
     <!-- Pop Up Upload -->
     <div id="uploadModal" class="modal">
-        <div class="modal-content" style="max-width: 700px; width: 60%;"> <span class="close"
-                onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
 
-            <form action="upload_proses.php" method="POST" enctype="multipart/form-data">
+            <form action="/prosesUpload" method="POST" enctype="multipart/form-data">
                 <div class="upload-top-section">
                     <h3>No Files Yet</h3>
-                    <p>Drag and drop, or select a file</p>
+                    <p>Select a file to upload</p>
                     <div class="upload-buttons">
                         <label for="file-upload" class="btn-blue-icon" style="cursor:pointer;">
-                            <img src="/asset/header/Upload on.png" width="16"> Upload
+                            <img src="/asset/header/Upload on.png" width="16"> Pilih Gambar
                         </label>
-                        <input type="file" id="file-upload" name="gambar_karya" style="display:none;" required>
-
-                        <button type="button" class="btn-blue-icon">🔗 Add Link</button>
-
+                        <input type="file" id="file-upload" name="gambar_karya" style="display:none;" required
+                            onchange="displayFileName()">
+                        <span id="file-name-display"
+                            style="display:block; font-size: 12px; margin-top: 5px; color: #555;"></span>
                     </div>
                 </div>
 
                 <div class="detail-panel">
                     <div class="detail-header">
-                        <h3>Detail</h3>
+                        <h3>Detail Karya</h3>
                     </div>
                     <div class="detail-body">
                         <div class="detail-grid">
@@ -135,32 +135,33 @@ if (isset($_POST['submit'])) {
                                     <input type="text" name="judul" placeholder="Masukkan judul..." required>
                                 </div>
                                 <div class="input-group">
-                                    <label>Description</label>
+                                    <label>Deskripsi</label>
                                     <textarea name="deskripsi" placeholder="Ketik deskripsi karya di sini..."
                                         required></textarea>
                                 </div>
                                 <div class="input-group">
-                                    <label>Category</label>
+                                    <label>Kategori</label>
                                     <select name="kategori">
-                                        <option value="Sejarah">Sejarah</option>
-                                        <option value="Ilmu Pengetahuan">Ilmu Pengetahuan</option>
                                         <option value="Pemrograman">Pemrograman</option>
-                                        <option value="Pendidikan Pancasila">Pendidikan Pancasila</option>
+                                        <option value="Desain Grafis">Desain Grafis</option>
+                                        <option value="Ilmu Pengetahuan">Ilmu Pengetahuan</option>
+                                        <option value="Sejarah">Sejarah</option>
                                     </select>
                                 </div>
                             </div>
+
                             <div class="detail-right">
                                 <div class="input-group">
-                                    <label>Note</label>
-                                    <textarea name="note" placeholder="Add additional context..."></textarea>
+                                    <label>Note (Catatan Tambahan)</label>
+                                    <textarea name="note" placeholder="Tambahkan konteks tambahan..."></textarea>
                                 </div>
                                 <div class="input-group">
-                                    <label>Owner / Anggota</label>
-                                    <input type="text" name="anggota" placeholder="Nama pengunggah...">
+                                    <label>Nama Pengunggah / Anggota</label>
+                                    <input type="text" name="anggota" placeholder="Nama lengkap...">
                                 </div>
-                                <button type="submit" name="submit" class="btn-blue-icon"
-                                    style="width:100%; justify-content:center; margin-top:10px;">Simpan &
-                                    Upload</button>
+                                <button type="submit" name="submit" class="btn-submit-upload">
+                                    Simpan & Unggah Karya
+                                </button>
                             </div>
                         </div>
                     </div>
