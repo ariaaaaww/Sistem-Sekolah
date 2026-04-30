@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
             // Jika muncul error "Unknown column 'note'", berarti kolom tersebut tidak ada di tabel lampiran
             echo "Error Database: " . mysqli_error($conn);
         }
-    }
+    }w
     // Jika akses file ini tanpa lewat form
     header("Location: /deks/deksripsi-karya");
 }
