@@ -141,60 +141,65 @@ if (isset($_POST['submit'])) {
 
     <!-- Pop Up Upload -->
     <div id="uploadModal" class="modal">
-        <div class="modal-content" style="max-width: 700px; width: 60%;"> <span class="close"
-                onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
 
-            <form action="../app/view/karya/deksripsi-karya.php" method="POST" enctype="multipart/form-data">
-                <div class="upload-top-section">
+            <form action="upload_proses.php" method="POST" enctype="multipart/form-data">
+                <div class="upload-top-section" style="text-align: center;">
                     <h3>No Files Yet</h3>
-                    <p>Select a file</p>
-                    <div class="upload-buttons">
-                        <label for="file-upload" class="btn-blue-icon" style="cursor:pointer;">
-                            <img src="/asset/header/Upload on.png" width="16"> Upload
+                    <p>Silakan pilih 3 file sekaligus</p>
+                    <div class="upload-buttons"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+                        <label for="file-upload"
+                            style="cursor:pointer; background-color: #4A90E2; color: white; padding: 10px 24px; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; font-weight: 500;">
+                            <img src="/asset/header/Upload on.png" width="16"> Choose Files
                         </label>
-                        <input type="file" id="file-upload" name="gambar_lampiran" style="display:none;" required>
-
+                        <input type="file" id="file-upload" name="gambar_karya[]" accept="image/*" multiple required
+                            onchange="validateFileCount(this)" style="display: none;">
+                        <span id="file-name-display" style="display:block; font-size: 12px; color: #555;"></span>
                     </div>
                 </div>
 
                 <div class="detail-panel">
                     <div class="detail-header">
-                        <h3>Detail</h3>
+                        <h3>Detail Karya</h3>
                     </div>
                     <div class="detail-body">
                         <div class="detail-grid">
                             <div class="detail-left">
                                 <div class="input-group">
-                                    <label>Judul lampiran</label>
+                                    <label>Judul Karya</label>
                                     <input type="text" name="judul" placeholder="Masukkan judul..." required>
                                 </div>
                                 <div class="input-group">
-                                    <label>Description</label>
-                                    <textarea name="deskripsi" placeholder="Ketik deskripsi lampiran di sini..."
+                                    <label>Deskripsi</label>
+                                    <textarea name="deskripsi" placeholder="Ketik deskripsi karya di sini..."
                                         required></textarea>
                                 </div>
                                 <div class="input-group">
-                                    <label>Category</label>
+                                    <label>Kategori</label>
                                     <select name="kategori">
-                                        <option value="Sejarah">Sejarah</option>
-                                        <option value="Ilmu Pengetahuan">Ilmu Pengetahuan</option>
                                         <option value="Pemrograman">Pemrograman</option>
-                                        <option value="Pendidikan Pancasila">Pendidikan Pancasila</option>
+                                        <option value="Desain Grafis">Desain Grafis</option>
+                                        <option value="Ilmu Pengetahuan">Ilmu Pengetahuan</option>
+                                        <option value="Sejarah">Sejarah</option>
                                     </select>
                                 </div>
                             </div>
+
                             <div class="detail-right">
                                 <div class="input-group">
                                     <label>Note</label>
-                                    <textarea name="note" placeholder="Add additional context..."></textarea>
+                                    <textarea name="note" placeholder="Tambahkan konteks tambahan..."></textarea>
                                 </div>
                                 <div class="input-group">
-                                    <label>Owner / Anggota</label>
-                                    <input type="text" name="anggota" placeholder="Nama pengunggah...">
+                                    <label>Nama Pengunggah / Anggota</label>
+                                    <input type="text" name="anggota" placeholder="Nama lengkap...">
                                 </div>
-                                <button type="submit" name="submit" class="btn-blue-icon"
-                                    style="width:100%; justify-content:center; margin-top:10px;">Simpan &
-                                    Upload</button>
+                                <button type="submit" name="submit" class="btn-submit-upload"
+                                    style="width:100%; justify-content:center; margin-top:10px;">
+                                    Simpan & Unggah Karya
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -109,17 +109,18 @@ if (isset($_POST['submit'])) {
             <span class="close" onclick="closeModal()">&times;</span>
 
             <form action="/prosesUpload/" method="POST" enctype="multipart/form-data">
-                <div class="upload-top-section">
+                <div class="upload-top-section" style="text-align: center;">
                     <h3>No Files Yet</h3>
-                    <p>Select a file to upload</p>
-                    <div class="upload-buttons">
-                        <label for="file-upload" class="btn-blue-icon" style="cursor:pointer;">
-                            <img src="/asset/header/Upload on.png" width="16"> Pilih Gambar
+                    <p>Silakan pilih 3 file sekaligus</p>
+                    <div class="upload-buttons"
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+                        <label for="file-upload"
+                            style="cursor:pointer; background-color: #4A90E2; color: white; padding: 10px 24px; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; font-weight: 500;">
+                            <img src="/asset/header/Upload on.png" width="16"> Choose Files
                         </label>
-                        <input type="file" id="file-upload" name="gambar_karya" style="display:none;" required
-                            onchange="displayFileName()">
-                        <span id="file-name-display"
-                            style="display:block; font-size: 12px; margin-top: 5px; color: #555;"></span>
+                        <input type="file" id="file-upload" name="gambar_karya[]" accept="image/*" multiple required
+                            onchange="validateFileCount(this)" style="display: none;">
+                        <span id="file-name-display" style="display:block; font-size: 12px; color: #555;"></span>
                     </div>
                 </div>
 
@@ -152,14 +153,15 @@ if (isset($_POST['submit'])) {
 
                             <div class="detail-right">
                                 <div class="input-group">
-                                    <label>Note (Catatan Tambahan)</label>
+                                    <label>Note</label>
                                     <textarea name="note" placeholder="Tambahkan konteks tambahan..."></textarea>
                                 </div>
                                 <div class="input-group">
                                     <label>Nama Pengunggah / Anggota</label>
                                     <input type="text" name="anggota" placeholder="Nama lengkap...">
                                 </div>
-                                <button type="submit" name="submit" class="btn-submit-upload">
+                                <button type="submit" name="submit" class="btn-submit-upload"
+                                    style="width:100%; justify-content:center; margin-top:10px;">
                                     Simpan & Unggah Karya
                                 </button>
                             </div>

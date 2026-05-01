@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 20, 2026 at 08:48 AM
+-- Generation Time: May 01, 2026 at 05:16 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -51,6 +51,19 @@ INSERT INTO `karya` (`id`, `judul`, `deskripsi`, `kategori`, `anggota`, `jumlah_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `komentar`
+--
+
+CREATE TABLE `komentar` (
+  `id` int NOT NULL,
+  `lampiran_id` int NOT NULL,
+  `isi_komentar` text NOT NULL,
+  `tanggal_komentar` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lampiran`
 --
 
@@ -76,6 +89,20 @@ INSERT INTO `lampiran` (`id`, `judul`, `deskripsi`, `kategori`, `anggota`, `juml
 (3, 'Ini Indonesia Ku Digital Illustration', 'This is a digital illustration on Photoshop. It shows about cultures in Indonesia...', 'Pendidikan Pancasila', 'WimsArt', 1, 'image 1.png', 'image 2.png', 'image 3.png'),
 (4, 'Dasar Pemrograman Python', 'Dasar pemrograman Python membahas pengenalan bahasa pemrograman Python yang digunakan untuk membuat berbagai jenis program dan aplikasi...', 'Pemrograman', 'Development', 4, 'image 1.png', 'image 2.png', 'image 3.png');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int NOT NULL,
+  `nama` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -87,10 +114,24 @@ ALTER TABLE `karya`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_komentar_lampiran` (`lampiran_id`);
+
+--
 -- Indexes for table `lampiran`
 --
 ALTER TABLE `lampiran`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -103,10 +144,32 @@ ALTER TABLE `karya`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `lampiran`
 --
 ALTER TABLE `lampiran`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD CONSTRAINT `fk_komentar_lampiran` FOREIGN KEY (`lampiran_id`) REFERENCES `lampiran` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

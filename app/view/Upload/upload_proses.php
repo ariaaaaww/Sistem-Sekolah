@@ -1,62 +1,58 @@
 <?php
-// Koneksi ke database
+// Pastikan path ke file config.php sesuai dengan struktur folder Anda
 include '../app/config/config.php';
 
 if (isset($_POST['submit'])) {
-    // Ambil data teks dari form
     $judul = mysqli_real_escape_string($conn, $_POST['judul']);
     $deskripsi = mysqli_real_escape_string($conn, $_POST['deskripsi']);
     $kategori = mysqli_real_escape_string($conn, $_POST['kategori']);
-    $note = mysqli_real_escape_string($conn, $_POST['note']);
     $anggota = mysqli_real_escape_string($conn, $_POST['anggota']);
+    
+    // Mengambil nilai note jika ada di form
+    $note = isset($_POST['note']) ? mysqli_real_escape_string($conn, $_POST['note']) : '';
 
-    // Konfigurasi File Gambar
-    $filename = $_FILES['gambar_karya']['name'];
-    $tmp_name = $_FILES['gambar_karya']['tmp_name'];
-    $fileSize = $_FILES['gambar_karya']['size'];
-    $error = $_FILES['gambar_karya']['error'];
+    // Konfigurasi Upload Gambar
+    $target_dir = "../../../public/asset/deksripsi/";
 
-    // 1. Cek apakah ada file yang diunggah
-    if ($error === 4) {
-        echo "<script>alert('Pilih gambar terlebih dahulu!'); window.history.back();</script>";
-        exit;
+    // Buat folder jika belum ada
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0755, true);
     }
 
-    // 2. Validasi Ekstensi Gambar
-    $ekstensiValid = ['jpg', 'jpeg', 'png'];
-    $ekstensiFile = explode('.', $filename);
-    $ekstensiFile = strtolower(end($ekstensiFile));
+    $uploaded_files = [];
+    $total_files = count($_FILES['gambar_karya']['name']);
 
-    if (!in_array($ekstensiFile, $ekstensiValid)) {
-        echo "<script>alert('Bukan file gambar! (Gunakan jpg/jpeg/png)'); window.history.back();</script>";
-        exit;
-    }
+    // Lakukan perulangan untuk memproses file yang diupload (multiple)
+    for ($i = 0; $i < $total_files; $i++) {
+        $filename = $_FILES['gambar_karya']['name'][$i];
+        $tmp_name = $_FILES['gambar_karya']['tmp_name'][$i];
+        $target_file = $target_dir . basename($filename);
 
-    // 3. Generate Nama Baru (supaya tidak tertimpa jika nama file sama)
-    $namaFileBaru = uniqid() . '.' . $ekstensiFile;
-
-    // 4. Tentukan Folder Tujuan
-    $folderTujuan = "../../../public/asset/deksripsi/" . $namaFileBaru;
-
-    // 5. Pindahkan File dan Simpan ke Database
-// ... (Bagian atas tetap sama) ...
-
-    // 5. Pindahkan File dan Simpan ke Database
-    if (move_uploaded_file($tmp_name, $folderTujuan)) {
-        // SESUAIKAN KOLOM DI BAWAH INI:
-        // 'gambar' diganti 'gambar_lampiran1'
-        // Pastikan kolom 'note' ada di tabel, atau ganti jadi 'deskripsi' jika itu tujuannya
-        $query = "INSERT INTO lampiran (judul, deskripsi, kategori, anggota, jumlah_anggota, gambar_lampiran1) 
-              VALUES ('$judul', '$deskripsi', '$kategori', '$anggota', '1', '$namaFileBaru')";
-
-        if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Data berhasil disimpan!'); window.location='/deks/deksripsi-karya';</script>";
-        } else {
-            // Jika muncul error "Unknown column 'note'", berarti kolom tersebut tidak ada di tabel lampiran
-            echo "Error Database: " . mysqli_error($conn);
+        if (move_uploaded_file($tmp_name, $target_file)) {
+            $uploaded_files[] = $filename;
         }
-    }w
-    // Jika akses file ini tanpa lewat form
-    header("Location: /deks/deksripsi-karya");
+    }
+
+    // Ambil file pertama untuk dijadikan thumbnail atau simpan ke database
+    $gambar_utama = isset($uploaded_files[0]) ? $uploaded_files[0] : '';
+
+    // Query Insert ke Database
+    $query = "INSERT INTO karya (judul, deskripsi, kategori, anggota, jumlah_anggota, gambar) 
+              VALUES ('$judul', '$deskripsi', '$kategori', '$anggota', '$total_files', '$gambar_utama')";
+
+    if (mysqli_query($conn, $query)) {
+        // Berhasil, redirect ke halaman deskripsi-karya menggunakan JavaScript
+        echo "<script>
+            alert('Data dan karya berhasil diunggah!');
+            window.location.href = '/deksripsi-karya/';
+        </script>";
+        exit;
+    } else {
+        echo "Gagal input data: " . mysqli_error($conn);
+    }
+} else {
+    // Jika diakses tanpa menekan tombol submit
+    header("Location: /deksripsi-karya/");
+    exit;
 }
 ?>
