@@ -7,18 +7,18 @@ if (isset($_POST['submit'])) {
     $anggota = mysqli_real_escape_string($conn, $_POST['anggota']);
 
     // Konfigurasi Upload Gambar
-    $filename = $_FILES['gambar_karya']['name'];
-    $tmp_name = $_FILES['gambar_karya']['tmp_name'];
+    $filename = $_FILES['gambar_lampiran']['name'];
+    $tmp_name = $_FILES['gambar_lampiran']['tmp_name'];
     $folder = "../../../public/asset/deksripsi/" . $filename;
 
     // Pindahkan file ke folder tujuan
     if (move_uploaded_file($tmp_name, $folder)) {
         // Query Insert ke Database
-        $query = "INSERT INTO karya (judul, deskripsi, kategori, anggota, jumlah_anggota, gambar) 
+        $query = "INSERT INTO lampiran (judul, deskripsi, kategori, anggota, jumlah_anggota, gambar) 
                     VALUES ('$judul', '$deskripsi', '$kategori', '$anggota', '1', '$filename')";
 
         if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Data berhasil disimpan!'); window.location='deksripsi-karya.php';</script>";
+            echo "<script>alert('Data berhasil disimpan!'); window.location='deksripsi-lampiran.php';</script>";
         } else {
             echo "Gagal input data: " . mysqli_error($conn);
         }
@@ -27,7 +27,16 @@ if (isset($_POST['submit'])) {
     }
 }
 
+$id_lampiran = 4;
+$result = mysqli_query($conn, "SELECT * FROM lampiran WHERE id = $id_lampiran");
+$data['lampiran'] = mysqli_fetch_assoc($result);
+
+// Logika Upload (Jika submit ditekan)
+if (isset($_POST['submit'])) {
+    // ... kode upload Anda ...
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 
