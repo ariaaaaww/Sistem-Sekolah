@@ -10,6 +10,8 @@ $router->add('GET', '/', 'KaryaController', 'index');
 $router->add('GET', '/deksripsi-karya/', 'KaryaController', 'deskripsiKarya');
 // $router->add('GET', '/lampiran-karya', 'KaryaController', 'lampiranKarya');
 $router->add('GET', '/lampiran-karya/{id}', 'KaryaController', 'lampiranKarya');
+$router->add('GET', '/proses-upload/', 'KaryaController', 'uploadProses');
+
 
 $router->run();
 
